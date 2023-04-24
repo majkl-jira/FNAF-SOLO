@@ -31,7 +31,6 @@ html, body{
     width: 19%;
     background-color: red;
     right: 81%;
-    color: black;
     cursor: pointer;
     position: absolute;
 }
@@ -42,6 +41,19 @@ html, body{
     cursor: pointer;
     position: absolute;
 }
+
+#time{
+    top: 0%;
+    right: 0%;
+    position: absolute;
+    font-size: 400%;
+}
+#pych{
+    top: 85%;
+    right:70%;
+    position: absolute;
+    font-size: 400%;
+}
 #chodbaL{
     display: none;
     height: 100%;
@@ -50,13 +62,19 @@ html, body{
 
 #chodbaR{
     display: none;
+    height: 100%;
+    width: 100%;
 }
 #kaml{
     display: none;
+    height: 100%;
+    width: 100%;
 }
 
 #kamr{
     display: none;
+    height: 100%;
+    width: 100%;
 }
 
 
