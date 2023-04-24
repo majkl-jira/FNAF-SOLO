@@ -1,0 +1,37 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100vh;
+    width: 100vw;
+}
+
+#bg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+#startpoint{
+    height: 100%;
+    width: 100%;
+}
+#clickright{
+    height: 52%;
+    width: 14%;
+    margin-top: 6%;
+    background: transparent;
+    cursor: pointer;
+    position: absolute;
+}
+#clickleft{
+    height: 52%;
+    width: 14%;
+    margin-top: 6%;
+    margin-left: 10%;
+    background: transparent;
+    cursor: pointer;
+    position: absolute;
+}
