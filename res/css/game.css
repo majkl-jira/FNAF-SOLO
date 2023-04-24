@@ -20,18 +20,43 @@ html, body{
 }
 #clickright{
     height: 52%;
-    width: 14%;
-    margin-top: 6%;
-    background: transparent;
+    width: 19%;
+    background-color: aqua;
+    left: 81%;
     cursor: pointer;
     position: absolute;
 }
 #clickleft{
     height: 52%;
-    width: 14%;
-    margin-top: 6%;
-    margin-left: 10%;
-    background: transparent;
+    width: 19%;
+    background-color: red;
+    right: 81%;
+    color: black;
     cursor: pointer;
     position: absolute;
 }
+#clickexit{
+    height: 28%;
+    width: 14%;
+    background-color: black;
+    cursor: pointer;
+    position: absolute;
+}
+#chodbaL{
+    display: none;
+    height: 100%;
+    width: 100%;
+}
+
+#chodbaR{
+    display: none;
+}
+#kaml{
+    display: none;
+}
+
+#kamr{
+    display: none;
+}
+
+
