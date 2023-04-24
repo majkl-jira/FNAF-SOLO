@@ -1,0 +1,2 @@
+# FNAF-SOLO
+[PLAY]
