@@ -30,7 +30,7 @@ function doorOpen(direction, arr, mainbg, chodba, val) {
         if (inRoom == 2) {
             goBack = document.createElement('div')
             goBack.style.width = '200px'
-            goBack.style.height = '200px'
+            goBack.style.height = '200px' 
             goBack.style.backgroundColor = 'red'
             goBack.style.display = 'block'
             goBack.style.zIndex = '5'
