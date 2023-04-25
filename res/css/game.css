@@ -48,9 +48,21 @@ html, body{
     position: absolute;
     font-size: 400%;
 }
+#timehod{
+    top: 0%;
+    right: 4%;
+    position: absolute;
+    font-size: 400%;
+}
 #pych{
     top: 85%;
-    right:70%;
+    right:80%;
+    position: absolute;
+    font-size: 400%;
+}
+#pychhod{
+    top: 85%;
+    right:76%;
     position: absolute;
     font-size: 400%;
 }
@@ -65,16 +77,27 @@ html, body{
     height: 100%;
     width: 100%;
 }
-#kaml{
+#kam{
     display: none;
     height: 100%;
     width: 100%;
 }
 
-#kamr{
+#kam1withKai{
     display: none;
     height: 100%;
     width: 100%;
 }
+#chodbaLwithKai{
+    display: none;
+    height: 100%;
+    width: 100%;
+}
+#chodbaRwithKai{
+    display: none;
+    height: 100%;
+    width: 100%;
+}
+
 
 
