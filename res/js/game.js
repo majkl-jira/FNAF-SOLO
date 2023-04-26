@@ -32,9 +32,9 @@ highlightBg(left)
 highlightBg(right)
 pychhod.innerHTML = `Sanity: ${sanity}`;
 
+  doorDir(left, dirArr1, start, chodbaL, 2);
+  doorDir(right, dirArr1, start, chodbaR, 3);
 
-doorDir(left, dirArr1, start, chodbaL, 2);
-doorDir(right, dirArr1, start, chodbaR, 3);
 camDir();
 valSubstract(pychhod, sanity, sanityTime, "Sanity:");
 valSubstract(timehod, timeVal, timeTime, "", 1);
@@ -43,6 +43,7 @@ kaiWalk()
 
 function doorDir(direction, arr, mainbg, chodba, inRoomVal) {
   direction.onclick = () => {
+    console.log("KaiRoom: " + kaiRoom);
     inRoom = inRoomVal;
     arrDisplay(arr, mainbg, chodba, "none", "block")
     goBack = document.createElement("div");
@@ -66,6 +67,9 @@ function doorDir(direction, arr, mainbg, chodba, inRoomVal) {
         arrDisplay(arr, mainbg, chodba, "block", "none")
         goBack.style.display = "none";
       }
+      if (kaiRoom == 2) {
+        chodba.src = "./res/img/chodbaLwithKai.jpg";
+      }
     }
 
     if (inRoom == 3) {
@@ -80,6 +84,9 @@ function doorDir(direction, arr, mainbg, chodba, inRoomVal) {
         inRoom = 4;
         arrDisplay(arr, mainbg, chodba, "block", "none")
         goBack.style.display = "none";
+      }
+      if (kaiRoom == 3) {
+        chodba.src = "./res/img/chodbaLwithKai.jpg";
       }
     }
   };
@@ -158,6 +165,22 @@ function kaiWalk() {
     }
     else if (inRoom == 1 && kaiRoom != 1){
       arrDisplay(dirArr2, kam1withKai, kam,  "none", "block")
+    }
+
+    if (inRoom == 2 && kaiRoom == 2) {
+      arrDisplay(dirArr1, chodbaL, chodbaLwithKai, "none", "block")
+    }
+    else if (inRoom == 2 && kaiRoom!= 2){
+      arrDisplay(dirArr1, chodbaLwithKai, chodbaL, "none", "block")
+    }
+
+    if (inRoom == 3 && kaiRoom == 3) {
+      arrDisplay(dirArr1, chodbaR, chodbaLwithKai, "none", "block")
+      //IMG
+    }
+    else if (inRoom == 3 && kaiRoom!= 3){
+      arrDisplay(dirArr1, chodbaLwithKai, chodbaR, "none", "block")
+      //IMG
     }
     console.log(kaiRoom)
   }, 5000);
