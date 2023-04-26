@@ -1,2 +1,2 @@
 # FNAF-BACKROOMS
-[PLAY](https://github.com/majkl-jira/FNAF-SOLO.git)
+[PLAY](https://majkl-jira.github.io/FNAF-SOLO/)
