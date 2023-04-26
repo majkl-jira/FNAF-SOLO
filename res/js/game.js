@@ -15,6 +15,7 @@ const kam1withKai = document.getElementById("kam1withKai");
 const chodbaRwithKai = document.getElementById("chodbaRwithKai");
 const chodbaLwithKai = document.getElementById("chodbaLwithKai");
 const fakac = document.getElementById("fakac");
+const fakacimg = document.getElementById("fakacimg");
 
 let goBack;
 
@@ -215,5 +216,16 @@ function fakacButton() {
     }
   }
 }
+/* More moc to nefunguje
+fakac.onclick = () =>{
+  fakacimg.style.display = "block";
+  fakacimg.style.height = "100%";
+  fakacimg.style.width = "100%";
+  fakacimg.style.top = "50%";
+  fakacimg.style.right = "50%";
+  fakacimg.style.transform = "translate(-50%, -50%)";
+
+
+}*/
 
 
