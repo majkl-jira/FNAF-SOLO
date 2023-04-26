@@ -77,6 +77,15 @@ body {
   position: absolute;
   font-size: 400%;
 }
+
+#fakac {
+  top: 87%;
+  right: 4%;
+  position: absolute;
+  font-size: 400%;
+  background-color: chartreuse;
+  cursor: pointer;
+}
 #chodbaL {
   display: none;
   height: 100%;

@@ -14,6 +14,7 @@ const camDiv = document.getElementById("camDiv");
 const kam1withKai = document.getElementById("kam1withKai");
 const chodbaRwithKai = document.getElementById("chodbaRwithKai");
 const chodbaLwithKai = document.getElementById("chodbaLwithKai");
+const fakac = document.getElementById("fakac");
 
 let goBack;
 
@@ -23,6 +24,7 @@ let sanityTime = 1000;
 let timeVal = 12;
 let timeTime = sanityTime * 5;
 let kaiRoom = 1;
+let fakacCanClick = 1;
 
 
 const dirArr1 = [left, right, exit, camDiv];
@@ -39,6 +41,7 @@ camDir();
 valSubstract(pychhod, sanity, sanityTime, "Sanity:");
 valSubstract(timehod, timeVal, timeTime, "", 1);
 kaiWalk()
+fakacButton()
 
 
 function doorDir(direction, arr, mainbg, chodba, inRoomVal) {
@@ -64,7 +67,7 @@ function doorDir(direction, arr, mainbg, chodba, inRoomVal) {
 
       goBack.onclick = () => {
         inRoom = 4;
-        arrDisplay(arr, mainbg, chodba, "block", "none")
+        kaiCheck(3, arrDisplay(dirArr1, mainbg, chodbaLwithKai, "block", "none"), arrDisplay(arr, mainbg, chodba, "block", "none"))
         goBack.style.display = "none";
       }
       if (kaiRoom == 2) {
@@ -82,7 +85,7 @@ function doorDir(direction, arr, mainbg, chodba, inRoomVal) {
 
       goBack.onclick = () => {
         inRoom = 4;
-        arrDisplay(arr, mainbg, chodba, "block", "none")
+        kaiCheck(3, arrDisplay(dirArr1, mainbg, chodbaLwithKai, "block", "none"), arrDisplay(arr, mainbg, chodba, "block", "none"))
         goBack.style.display = "none";
       }
       if (kaiRoom == 3) {
@@ -157,7 +160,8 @@ function kaiWalk() {
       kaiRoom = Math.floor(Math.random() * (3 - 2 + 1) + 2)
     }
     else if (kaiRoom == 2 || kaiRoom == 3) {
-      //Pokud fakac tak zmizi, Pokud ne kaiRoom = 4
+      // Pokud fakac tak zmizi, Pokud ne kaiRoom = 4
+      
     }
 
     if (inRoom == 1 && kaiRoom == 1) {
@@ -184,6 +188,32 @@ function kaiWalk() {
     }
     console.log(kaiRoom)
   }, 5000);
+}
+
+function kaiCheck(value , func, func2) {
+  if (kaiRoom == value) {
+    func;
+  }
+  else{
+    func2;
+  }
+}
+
+function fakacButton() {
+  fakac.onclick = () => {
+    if (fakacCanClick == 1) {
+      kaiRoom = 1
+      fakacCanClick = 0
+      fakac.style.display = "none"
+      setTimeout(() => {
+        fakacCanClick = 1
+        fakac.style.display = "block"
+      }, 10000);  
+    }
+    else {
+      console.log("Cooldown")
+    }
+  }
 }
 
 
