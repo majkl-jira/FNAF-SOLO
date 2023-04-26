@@ -175,11 +175,11 @@ function kaiWalk() {
     }
 
     if (inRoom == 3 && kaiRoom == 3) {
-      arrDisplay(dirArr1, chodbaR, chodbaLwithKai, "none", "block")
+      arrDisplay(dirArr1, chodbaR, chodbaRwithKai, "none", "block")
       //IMG
     }
     else if (inRoom == 3 && kaiRoom!= 3){
-      arrDisplay(dirArr1, chodbaLwithKai, chodbaR, "none", "block")
+      arrDisplay(dirArr1, chodbaRwithKai, chodbaR, "none", "block")
       //IMG
     }
     console.log(kaiRoom)
