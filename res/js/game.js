@@ -21,11 +21,7 @@ doorLeft(left, dirArr1, start, chodbaL);
 function doorLeft(direction, arr, mainbg, chodba) {
   direction.onclick = () => {
     inRoom = 2;
-    arr.forEach((element) => {
-      element.style.display = "none";
-    });
-    mainbg.style.display = "none";
-    chodba.style.display = "block";
+    arrDisplay(arr, mainbg, chodba, "none", "block")
     if (inRoom == 2) {
       goBack = document.createElement("div");
       goBack.style.width = "12%";
@@ -38,6 +34,18 @@ function doorLeft(direction, arr, mainbg, chodba) {
       goBack.style.right = "15%";
 
       bg.appendChild(goBack);
+
+      goBack.onclick = () => {
+        arrDisplay(arr, mainbg, chodba, "block", "none")
+      }
     }
   };
+}
+
+function arrDisplay(array, div, div2, first, second){
+  array.forEach(element => {
+    element.style.display = first;
+  });
+  div.style.display = first;
+  div2.style.display = second;
 }
