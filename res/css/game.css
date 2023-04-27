@@ -85,6 +85,7 @@ body {
   font-size: 400%;
   background-color: chartreuse;
   cursor: pointer;
+  display: none;
 }
 #fakacimg{
   display: none;

@@ -25,7 +25,7 @@ let sanityTime = 1000;
 let timeVal = 12;
 let timeTime = sanityTime * 5;
 let kaiRoom = 1;
-let fakacCanClick = 1;
+let kaiFakac = 0;
 
 
 const dirArr1 = [left, right, exit, camDiv];
@@ -43,6 +43,7 @@ valSubstract(pychhod, sanity, sanityTime, "Sanity:");
 valSubstract(timehod, timeVal, timeTime, "", 1);
 kaiWalk()
 fakacButton()
+openDoor()
 
 
 function doorDir(direction, arr, mainbg, chodba, inRoomVal) {
@@ -63,6 +64,7 @@ function doorDir(direction, arr, mainbg, chodba, inRoomVal) {
     if (inRoom == 2) {
       goBack.style.top = "30%";
       goBack.style.right = "15%";
+      fakac.style.display = "block";
 
       bg.appendChild(goBack);
 
@@ -70,9 +72,12 @@ function doorDir(direction, arr, mainbg, chodba, inRoomVal) {
         inRoom = 4;
         kaiCheck(3, arrDisplay(dirArr1, mainbg, chodbaLwithKai, "block", "none"), arrDisplay(arr, mainbg, chodba, "block", "none"))
         goBack.style.display = "none";
+        fakac.style.display = "none";
       }
       if (kaiRoom == 2) {
-        chodba.src = "./res/img/chodbaLwithKai.jpg";
+        // chodba.src = "./res/img/chodbaLwithKai.jpg";
+        arrDisplay(dirArr2, mainbg, chodbaLwithKai, "none", "block")
+        chodbaL.style.display = "none";
       }
     }
 
@@ -81,16 +86,20 @@ function doorDir(direction, arr, mainbg, chodba, inRoomVal) {
       goBack.style.left = "33%";
       goBack.style.width = "35%";
       goBack.style.height = "20%";
+      fakac.style.display = "block";
 
       bg.appendChild(goBack);
 
       goBack.onclick = () => {
         inRoom = 4;
-        kaiCheck(3, arrDisplay(dirArr1, mainbg, chodbaLwithKai, "block", "none"), arrDisplay(arr, mainbg, chodba, "block", "none"))
+        kaiCheck(3, arrDisplay(dirArr1, mainbg, chodbaRwithKai, "block", "none"), arrDisplay(arr, mainbg, chodba, "block", "none"))
         goBack.style.display = "none";
+        fakac.style.display = "none";
       }
       if (kaiRoom == 3) {
-        chodba.src = "./res/img/chodbaLwithKai.jpg";
+        // chodba.src = "./res/img/chodbaRwithKai.png";
+        arrDisplay(dirArr2, mainbg, chodbaRwithKai, "none", "block")
+        chodbaR.style.display = "none";
       }
     }
   };
@@ -147,7 +156,10 @@ function valSubstract(element, value, time, string, id){
         console.log("Banger")
         value+=2;
       }
-      else if (value >= 1) {
+      else if (value == 6) {
+        value++
+      }
+      else if (value >= 1 && value != 6) {
         value+=2;
         console.log("Chabr")
     }
@@ -159,11 +171,17 @@ function kaiWalk() {
   setInterval(() => {
     if (kaiRoom == 1) {
       kaiRoom = Math.floor(Math.random() * (3 - 2 + 1) + 2)
+      kaiFakac = 0;
     }
-    else if (kaiRoom == 2 || kaiRoom == 3) {
-      // Pokud fakac tak zmizi, Pokud ne kaiRoom = 4
-      
+    
+    else if (kaiRoom == 2) {
+      checkKaiState(2)
     }
+
+    else if (kaiRoom == 3) {
+      checkKaiState(3)
+    }
+
 
     if (inRoom == 1 && kaiRoom == 1) {
       arrDisplay(dirArr2, start, kam1withKai,  "none", "block")
@@ -175,17 +193,15 @@ function kaiWalk() {
     if (inRoom == 2 && kaiRoom == 2) {
       arrDisplay(dirArr1, chodbaL, chodbaLwithKai, "none", "block")
     }
-    else if (inRoom == 2 && kaiRoom!= 2){
+    else if (inRoom == 2 && kaiRoom != 2){
       arrDisplay(dirArr1, chodbaLwithKai, chodbaL, "none", "block")
     }
 
     if (inRoom == 3 && kaiRoom == 3) {
       arrDisplay(dirArr1, chodbaR, chodbaRwithKai, "none", "block")
-      //IMG
     }
     else if (inRoom == 3 && kaiRoom!= 3){
       arrDisplay(dirArr1, chodbaRwithKai, chodbaR, "none", "block")
-      //IMG
     }
     console.log(kaiRoom)
   }, 5000);
@@ -202,30 +218,27 @@ function kaiCheck(value , func, func2) {
 
 function fakacButton() {
   fakac.onclick = () => {
-    if (fakacCanClick == 1) {
-      kaiRoom = 1
-      fakacCanClick = 0
-      fakac.style.display = "none"
-      setTimeout(() => {
-        fakacCanClick = 1
-        fakac.style.display = "block"
-      }, 10000);  
-    }
-    else {
-      console.log("Cooldown")
+    fakac.style.display = "none";
+    kaiFakac = 1;
+    setTimeout(() => {
+      fakac.style.display = "block";
+    }, 3000);
+  }
+}
+
+function checkKaiState(value) {
+  if (kaiFakac == 1 && inRoom == value) {
+    kaiRoom = 1
+  }
+  else{
+    kaiRoom = 4
+  }
+}
+
+function openDoor() {
+  exit.onclick = () => {
+    if (timeVal == 6) {
+      console.log("Game won")
     }
   }
 }
-/* More moc to nefunguje
-fakac.onclick = () =>{
-  fakacimg.style.display = "block";
-  fakacimg.style.height = "100%";
-  fakacimg.style.width = "100%";
-  fakacimg.style.top = "50%";
-  fakacimg.style.right = "50%";
-  fakacimg.style.transform = "translate(-50%, -50%)";
-
-
-}*/
-
-
